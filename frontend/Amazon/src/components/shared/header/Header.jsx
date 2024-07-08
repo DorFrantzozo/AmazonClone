@@ -7,15 +7,18 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import SerchBox from "../../SearchBox";
-import { Dropdown, DropdownButton, NavDropdown } from "react-bootstrap";
+import { Dropdown, DropdownButton, NavDropdown, Badge } from "react-bootstrap";
 import { Store } from "../../../Store";
 import { useContext } from "react";
 import { USER_SIGNOUT } from "../../../actions";
 
 export default function Header() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { userInfo } = state;
-  console.log(userInfo);
+  const {
+    userInfo,
+    cart: { cartItems },
+  } = state;
+
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -64,11 +67,6 @@ export default function Header() {
                   Sign Out
                 </Link>
               </NavDropdown>
-
-              <Link to="/cart" className="nav-link ms-4">
-                <FontAwesomeIcon icon={faShoppingCart} className="text-white" />
-                {/*badge */}
-              </Link>
             </div>
           ) : (
             <>
@@ -80,6 +78,14 @@ export default function Header() {
               </Link>
             </>
           )}
+          <Link to="/cart" className="nav-link ms-4">
+            <FontAwesomeIcon icon={faShoppingCart} className="text-white" />
+            {cartItems.length > 0 && (
+              <Badge pill bg="danger">
+                {cartItems.reduce((a, c) => a + c.quantity, 0)}
+              </Badge>
+            )}
+          </Link>
         </Container>
       </NavBar>
     </div>

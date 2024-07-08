@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import Title from "../components/shered/Title";
+import Title from "../components/shared/Title";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamation } from "@fortawesome/free-solid-svg-icons";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import amazonLogo from "../assets/img/amazon-logo.png";
-import Error from "../components/shered/erorr/error";
+import Error from "../components/shared/erorr/error";
 import axios from "axios";
 import { Store } from "../Store";
 import { USER_SIGNIN } from "../actions";
@@ -61,9 +61,9 @@ export default function Signin() {
       {errorMessage && <Error errorMessage={errorMessage} />}
       <img
         src={amazonLogo}
-        className="d-flex justify-content-center align-items-center"
         alt="AmazonLogo"
-        width={"100px"}
+        width={"200px"}
+        style={{ display: "flex", justifyContent: "center" }}
       />
       <Container
         className="border rounded d-block text-center mt-5"

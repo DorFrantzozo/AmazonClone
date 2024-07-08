@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import Title from "../components/shered/Title";
+import Title from "../components/shared/Title";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamation } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import amazonLogo from "../assets/img/amazon-logo.png";
-import Error from "../components/shered/erorr/error";
+import Error from "../components/shared/erorr/error";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
